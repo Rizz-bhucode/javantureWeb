@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="./styles.css   ">
+     
+</head>
+
+<body>
+    <div class="slider-container">
+        <img id="slider" src="" alt="Image Slider">
+        <button class="btn prev" onclick="prevImage()">Previous</button>
+        <button class="btn next" onclick="nextImage()">Next</button>
+    </div>
+ 
+<script>
+    const images = [
+    "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+    "https://www.apu.edu.my/sites/default/files/phd_in_technology_-odl_960x360.jpg",
+    "https://bluesoft.com/wp-content/uploads/2024/11/MicrosoftTeams-image.jpg"
+];
+let currentIndex = 0;
+
+function updateImage() {
+    document.getElementById("slider").src = images[currentIndex];
+}
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage();
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage();
+}
+
+window.onload = updateImage;
+</script>
+</body>
+</html>
